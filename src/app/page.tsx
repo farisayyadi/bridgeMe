@@ -1,95 +1,51 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import SearchBox from "@/components/searchBox/SearchBox";
+import homeStyles from "./home.module.css";
+import { useState } from "react";
+import styles from "@/components/searchBox/SearchBox.module.css";
+
+const Home: React.FC = () => {
+  const [searchResults, setSearchResults] = useState<string[]>([]);
+
+  const handleSearch = async (query: string) => {
+    // Perform the search (e.g., call an API)
+    // Here we mock the search results for demonstration purposes
+    const results = await mockSearch(query);
+    setSearchResults(results);
+  };
+
+  // Mock search function
+  const mockSearch = async (query: string): Promise<string[]> => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve([`Result for "${query}"`]);
+      }, 500);
+    });
+  };
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <div className={homeStyles.container}>
+        <div className={homeStyles.textContainer}>
+          <h1>Let's be each other's Bridge</h1>
+          <p>Empowering Connections, Inspiring Growth</p>
+          <div className={homeStyles.buttons}>
+            <button className={homeStyles.button}>learn more</button>
+            <button className={homeStyles.button}>contact</button>
+          </div>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <SearchBox onSearch={handleSearch} />
+      <div className={styles.results}>
+        {searchResults.map((result, index) => (
+          <div key={index} className={styles.results}>
+            {result}
+          </div>
+        ))}
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   );
-}
+};
+
+export default Home;

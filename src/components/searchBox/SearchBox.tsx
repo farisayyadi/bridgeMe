@@ -17,6 +17,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({ onSearch }) => {
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     onSearch(query);
+    setQuery("");
   };
 
   return (

@@ -1,26 +1,41 @@
 :root {
-  --bg: #0d0c22;
-  --text: #ffffff;
+  --bg: #e0e0e0;
+  --text: #0d0c22;
   --bgSoft: #2d2b42;
   --textSoft: #e5e5e5;
   --btn: #3aaaa8;
   --btn-bg: #ffee00;
+  --bg-input: #8d8686;
+  --text-white: #fff;
 }
-* {
+* /*universal selector*/ {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  background: var(--bg);
+  max-width: 1536px;
+  margin: auto;
+  background: linear-gradient(to bottom, var(--bgSoft), var(--text-white));
   color: var(--text);
+  background: linear-gradient(180deg, #bac0be, var(--text-white));
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgb(48, 75, 94) 0%,
+    rgb(74, 101, 119) 26%,
+    rgb(223, 223, 223) 100%
+  );
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
 .container {
-  /* max-width: 1536px; */
   margin: auto;
   padding-left: 50px;
   padding-right: 50px;
@@ -28,4 +43,35 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.container::before,
+.container::after {
+  content: "";
+  position: absolute;
+  background: #bac0be3f;
+  border-radius: 50%;
+  z-index: 1;
+}
+.container::before {
+  width: 300px;
+  height: 300px;
+  top: 50px;
+  left: -100px;
+}
+
+.container::after {
+  width: 200px;
+  height: 200px;
+  bottom: 100px;
+  right: -50px;
+}
+
+.container .circle {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  top: 200px;
+  right: 200px;
 }

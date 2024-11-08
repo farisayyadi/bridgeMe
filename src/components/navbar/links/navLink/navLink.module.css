@@ -6,6 +6,6 @@
   text-align: center;
 }
 .active {
-  background-color: var(--text);
+  background-color: var(--btn);
   color: var(--bg);
 }

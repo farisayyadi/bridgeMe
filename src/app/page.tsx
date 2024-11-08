@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import SearchBox from "@/components/searchBox/SearchBox";
 import homeStyles from "./home.module.css";
 import { useState, useEffect } from "react";
@@ -62,20 +63,21 @@ const Home: React.FC = () => {
   return (
     <>
       <div className={homeStyles.container}>
-        <div className={homeStyles.textContainer}>
+        <div className={`${homeStyles.textContainer} ${homeStyles.circle}`}>
           <h1>Let's be each other's Bridge</h1>
           <p>Empowering Connections, Inspiring Growth</p>
+          <SearchBox onSearch={handleSearch} />
           <div className={homeStyles.buttons}>
-            <Link href="/about">
+            <Link href="/about" prefetch={false}>
               <button className={homeStyles.button}>learn more</button>
             </Link>
-            <Link href="/contact">
+            <Link href="/contact" prefetch={false}>
               <button className={homeStyles.button}>contact</button>
             </Link>
           </div>
         </div>
       </div>
-      <SearchBox onSearch={handleSearch} />
+
       <div className={styles.results}>
         {searchResults.map((result, index) => (
           <div key={index} className={styles.result}>

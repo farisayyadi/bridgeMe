@@ -36,7 +36,7 @@ const links: LinkItem[] = [
 const Links = () => {
   const [open, setOpen] = useState<boolean>(false);
 
-  //Temprory
+  //Temporary
   const session: boolean = true;
   const isAdmin: boolean = true;
 

@@ -1,19 +1,42 @@
 :root {
-  --bg: #e0e0e0;
-  --text: #0d0c22;
-  --bgSoft: #2d2b42;
-  --textSoft: #e5e5e5;
-  --btn: #3aaaa8;
-  --btn-bg: #ffee00;
-  --bg-input: #8d8686;
-  --text-white: #fff;
+  /* General Colors */
+  --bg: #e0e0e0; /* General background */
+  --bgSoft: #2d2b42; /* Soft background */
+  --text: #0d0c22; /* Default text color */
+  --textSoft: #e5e5e5; /* Soft text color */
+  --text-white: #ffffff; /* White text color */
+
+  /* Input Colors */
+  --bg-input: #8d8686; /* Input background */
+
+  /* Button Colors */
+  --btn: #3aaaa8; /* Primary button background (base color) */
+  --btn-bg: #ffee00; /* Button hover background */
+  --btn-hover-bg: #d0d0d0; /* Hover background for buttons */
+
+  /* Primary Color Scale (based on #3aaaa8) */
+  --Primary-500: #3aaaa8; /* Base primary color (your chosen color) */
+  --Primary-600: #2f8a88; /* Slightly darker */
+  --Primary-700: #26736c; /* Even darker */
+
+  /* Secondary Color Scale */
+  --Secondary-500: #34bfbf; /* Base secondary color (lighter than primary) */
+  --Secondary-600: #2aa3a3; /* Slightly darker secondary */
+  --Secondary-700: #1e8282; /* Even darker secondary */
+
+  /* Warning Color Scale */
+  --Warning-500: #f2b511; /* Base warning color (bright yellow-orange) */
+  --Warning-600: #d89300; /* Slightly darker warning */
+  --Warning-700: #b47300; /* Even darker warning */
 }
+
 * /*universal selector*/ {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body {
+body,
+html {
   max-width: 1536px;
   margin: auto;
   background: linear-gradient(to bottom, var(--bgSoft), var(--text-white));
@@ -21,7 +44,8 @@ body {
   background: linear-gradient(180deg, #bac0be, var(--text-white));
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: auto;
+  height: auto;
   background: rgb(2, 0, 36);
   background: radial-gradient(
     circle,
@@ -60,6 +84,7 @@ a {
 }
 
 .container::after {
+  position: absolute;
   width: 200px;
   height: 200px;
   bottom: 100px;

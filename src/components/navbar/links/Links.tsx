@@ -31,6 +31,14 @@ const links: LinkItem[] = [
     title: "Map",
     path: "/map",
   },
+  {
+    title: "Providers",
+    path: "/providers",
+  },
+  {
+    title: "Services",
+    path: "/services",
+  },
 ];
 
 const Links = () => {

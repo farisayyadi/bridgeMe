@@ -4,6 +4,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import styles from "./SearchBox.module.css";
 import { CiSearch, CiLocationOn } from "react-icons/ci";
 import { IoIosClose } from "react-icons/io";
+import Button from "../button/Button";
 
 interface SearchBoxProps {
   onSearch: (query: string) => void;
@@ -18,34 +19,46 @@ const SearchBox: React.FC<SearchBoxProps> = ({ onSearch }) => {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    onSearch(query);
+    if (query.trim() !== "") {
+      onSearch(query);
+      setQuery("");
+    }
+  };
+
+  const clearInput = () => {
     setQuery("");
   };
 
   return (
     <form onSubmit={handleSubmit} className={styles.searchBox}>
-      <span>
-        <CiSearch />
+      <span className={styles.searchInputs}>
+        <CiSearch className={styles.icons} />
         <input
           type="text"
           value={query}
           onChange={handleInputChange}
           placeholder="Search..."
-          className={styles.searchInput}
+          className={styles.inputField}
         />
-        <IoIosClose />
+        {query && (
+          <IoIosClose className={styles.closeIcone} onClick={clearInput} />
+        )}
       </span>
-      <span>
-        <CiLocationOn />
+      <span className={styles.searchInputs}>
+        <CiLocationOn className={styles.icons} />
         <input
           type="text"
-          className={styles.searchInput}
+          className={styles.inputField}
           placeholder="All Locations"
         />
       </span>
-      <button type="submit" className={styles.searchButton}>
-        Search
-      </button>
+      <Button
+        text="Search"
+        size="small"
+        type="primary"
+        buttonType="submit"
+        className={styles.searchButton} // Custom styles for this button
+      />
     </form>
   );
 };

@@ -5,7 +5,7 @@ import SearchBox from "@/components/searchBox/SearchBox";
 import homeStyles from "./home.module.css";
 import { useState, useEffect } from "react";
 import styles from "@/components/searchBox/SearchBox.module.css";
-import Link from "next/link";
+import Button from "@/components/button/Button";
 
 const Home: React.FC = () => {
   const [searchResults, setSearchResults] = useState<string[]>([]);
@@ -63,17 +63,23 @@ const Home: React.FC = () => {
   return (
     <>
       <div className={homeStyles.container}>
-        <div className={`${homeStyles.textContainer} ${homeStyles.circle}`}>
+        <div className={homeStyles.textContainer}>
           <h1>Let's be each other's Bridge</h1>
           <p>Empowering Connections, Inspiring Growth</p>
           <SearchBox onSearch={handleSearch} />
           <div className={homeStyles.buttons}>
-            <Link href="/about" prefetch={false}>
-              <button className={homeStyles.button}>learn more</button>
-            </Link>
-            <Link href="/contact" prefetch={false}>
-              <button className={homeStyles.button}>contact</button>
-            </Link>
+            <Button
+              text="Find Service"
+              type="primary"
+              size="big"
+              route="/find-service"
+            />
+            <Button
+              text="Become a Provider"
+              type="primary"
+              size="big"
+              route="/become-a-provider"
+            />
           </div>
         </div>
       </div>

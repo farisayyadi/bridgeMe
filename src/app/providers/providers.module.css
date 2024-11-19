@@ -1,0 +1,92 @@
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2c3e50;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.providersGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.providerCard {
+  flex: 1 1 calc(33.33% - 20px);
+  max-width: calc(33.33% - 20px);
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.providerCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-color: #3498db;
+}
+
+.providerName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #34495e;
+}
+
+.contact {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+}
+
+.details {
+  font-size: 1rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.address {
+  font-size: 1rem;
+  color: #95a5a6;
+  margin-bottom: 10px;
+}
+
+.rating {
+  font-size: 1rem;
+  color: #27ae60;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.joinDate {
+  font-size: 1rem;
+  color: #e67e22;
+}
+
+@media (max-width: 768px) {
+  .providerCard {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .providerCard {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

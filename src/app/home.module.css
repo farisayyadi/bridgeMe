@@ -9,7 +9,12 @@
   display: flex;
   gap: 100px;
 } */
-
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-direction: row;
+}
 .textContainer {
   flex: 1;
   display: flex;
@@ -29,42 +34,13 @@
   position: relative;
 }
 
-.buttons {
-  display: flex;
-  gap: 10px;
-}
-.button {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.5s;
-  background-color: var(--btn);
-  color: var(--text-white);
-}
-.button:hover {
-  background-color: var(--btn-bg);
-  color: var(--text);
-}
-
-@media (max-width: 1024px) {
-  .container {
-    flex-direction: column;
-    text-align: center;
-  }
-  .textContainer {
-    padding-inline-start: unset;
-    padding-block: 2rem;
-  }
-  .button {
-    justify-content: center;
-  }
-}
-
 @media (max-width: 768px) {
   .container {
     background-image: none;
     height: unset;
+  }
+  .buttons {
+    flex-direction: column;
   }
   .textContainer {
     padding-inline-start: unset;

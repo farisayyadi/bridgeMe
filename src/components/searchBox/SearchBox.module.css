@@ -1,48 +1,82 @@
 .searchBox {
   display: flex;
   align-items: center;
-  margin: auto;
+  justify-content: space-evenly;
   width: 60%;
+  margin: auto;
+  padding: 0.5rem;
   background-color: #ccc;
   border-radius: 50px;
-  padding: 1rem;
 }
 
-.searchInput {
+.searchInputs {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+/* Input Fields */
+.inputField {
   flex: 1;
+  width: 100%;
   padding: 8px;
   font-size: 16px;
-  width: 100%;
+  background-color: transparent;
   border: none;
   border-right: 1px dotted #222222;
-  transition: all 0.5s;
-  background-color: transparent;
-}
-.searchInput:focus {
-  outline: none;
-}
-.searchInput::first-letter {
-  cursor: pointer;
-}
-.searchButton {
-  padding: 10px 16px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 50px;
-  border: none;
-  margin-left: 5px;
-  background-color: var(--btn);
-  color: #fff;
-  transition: all 0.5s;
-}
-.searchInput:nth-child(4) {
-  border: none;
-}
-.searchButton:hover {
-  background-color: var(--btn-bg);
-  color: #0d0c22;
+  transition: all 0.5s ease;
 }
 
+.inputField:focus {
+  outline: none;
+}
+
+/* Icons */
+.icons {
+  transition: color 0.8s ease, transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.icons:hover {
+  color: var(--Primary-500);
+  transform: scale(1.1);
+}
+
+/* Close Icon */
+.closeIcone {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  margin: 5px;
+  transition: color 0.8s ease, transform 0.3s ease-in-out;
+}
+
+.closeIcone:hover {
+  color: var(--Primary-500);
+  transform: scale(1.1);
+}
+
+/* Search Button */
+.searchButton {
+  min-width: unset !important;
+  font-weight: unset !important;
+}
+
+.searchButton:hover {
+  background-color: var(--Primary-700) !important; /* Darker shade on hover */
+  transform: scale(1.05) !important; /* Enlarge slightly on hover */
+  color: unset !important;
+}
+
+.searchButton:active {
+  transform: scale(0.95); /* Slightly shrink on click */
+}
+.searchButton::after {
+  content: unset !important;
+}
+
+/* Results Section */
 .results {
   margin-top: 20px;
 }
@@ -50,4 +84,11 @@
 .result {
   padding: 10px;
   border-bottom: 1px solid var(--textSoft);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .searchBox {
+    width: 100%;
+  }
 }

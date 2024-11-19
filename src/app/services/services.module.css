@@ -1,0 +1,81 @@
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.servicesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.serviceCard {
+  flex: 1 1 calc(33.33% - 20px);
+  max-width: calc(33.33% - 20px);
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  margin-bottom: 15px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+.img:hover {
+  transform: scale(0.9);
+}
+
+.serviceName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.provider {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.details {
+  font-size: 1rem;
+  color: #444;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .servicesGrid {
+    flex-direction: column;
+  }
+  .serviceCard {
+    max-width: unset;
+  }
+}

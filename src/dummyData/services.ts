@@ -39,7 +39,7 @@ export const servicesData: Service[] = [
     Price: 75,
     Duration: 120,
     ProviderID: 103,
-    Image: "Basic-Cleaning.png",
+    Image: "Tree-Trimming.png",
   },
   {
     ServiceID: 205,
@@ -49,7 +49,7 @@ export const servicesData: Service[] = [
     Price: 60,
     Duration: 60,
     ProviderID: 104,
-    Image: "Basic-Cleaning.png",
+    Image: "Home-Repair.png",
   },
   {
     ServiceID: 206,
@@ -59,7 +59,7 @@ export const servicesData: Service[] = [
     Price: 45,
     Duration: 90,
     ProviderID: 104,
-    Image: "Basic-Cleaning.png",
+    Image: "Furniture-Assembly.png",
   },
   {
     ServiceID: 207,
@@ -69,7 +69,7 @@ export const servicesData: Service[] = [
     Price: 80,
     Duration: 60,
     ProviderID: 105,
-    Image: "Basic-Cleaning.png",
+    Image: "Tech-suport.png",
   },
   {
     ServiceID: 208,
@@ -79,7 +79,7 @@ export const servicesData: Service[] = [
     Price: 70,
     Duration: 120,
     ProviderID: 105,
-    Image: "Basic-Cleaning.png",
+    Image: "Virus-Removal.png",
   },
   {
     ServiceID: 209,
@@ -89,7 +89,7 @@ export const servicesData: Service[] = [
     Price: 90,
     Duration: 60,
     ProviderID: 106,
-    Image: "Basic-Cleaning.png",
+    Image: "Plumbing-Fixes.png",
   },
   {
     ServiceID: 210,
@@ -99,7 +99,7 @@ export const servicesData: Service[] = [
     Price: 120,
     Duration: 180,
     ProviderID: 106,
-    Image: "Basic-Cleaning.png",
+    Image: "Plumbing-Fixes.png",
   },
   {
     ServiceID: 211,
@@ -169,7 +169,7 @@ export const servicesData: Service[] = [
     Price: 80,
     Duration: 60,
     ProviderID: 110,
-    Image: "Basic-Cleaning.png",
+    Image: "HVAC-Maintenance.png",
   },
   {
     ServiceID: 218,
@@ -179,6 +179,6 @@ export const servicesData: Service[] = [
     Price: 120,
     Duration: 90,
     ProviderID: 110,
-    Image: "Basic-Cleaning.png",
+    Image: "Air-Duct-Cleaning.png",
   },
 ];

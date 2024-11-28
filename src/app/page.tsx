@@ -1,63 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import SearchBox from "@/components/searchBox/SearchBox";
 import homeStyles from "./home.module.css";
-import { useState, useEffect } from "react";
 import styles from "@/components/searchBox/SearchBox.module.css";
 import Button from "@/components/button/Button";
+import { filterServices } from "@/utils/serviceSearch";
+import { Service } from "@/app/services/page";
+import Image from "next/image";
 
 const Home: React.FC = () => {
-  const [searchResults, setSearchResults] = useState<string[]>([]);
-  const [query, setQuery] = useState<string>("");
-
-  useEffect(() => {
-    const fetchSearchResults = async () => {
-      if (!query.trim()) {
-        // If query is empty, clear the results and return early
-        setSearchResults([]);
-        return;
-      }
-      try {
-        const response = await fetch(
-          "https://restcountries.com/v3.1/independent?status=true"
-        );
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-
-        // Filter the results based on the query
-        const filteredData = data.filter((country: any) =>
-          country.name.common.toLowerCase().includes(query.toLowerCase())
-        );
-
-        // Format the results based on the filtered data
-        const results = filteredData.map((country: any) => {
-          const name = country.name.common;
-          const languages = country.languages
-            ? Object.values(country.languages).join(", ")
-            : "No languages available";
-          const capital = country.capital
-            ? country.capital.join(", ")
-            : "No capital available";
-          return `Country: ${name}, Capital: ${capital}, Languages: ${languages}`;
-        });
-
-        setSearchResults(results);
-      } catch (error) {
-        console.error("Failed to fetch search results:", error);
-        setSearchResults([`Error fetching results for "${query}"`]);
-      }
-    };
-
-    if (query) {
-      fetchSearchResults();
-    }
-  }, [query]);
+  const [results, setResults] = useState<
+    (Service & { ProviderName: string })[]
+  >([]);
 
   const handleSearch = (query: string) => {
-    setQuery(query);
+    const filtered = filterServices(query);
+    setResults(filtered);
   };
 
   return (
@@ -72,22 +31,38 @@ const Home: React.FC = () => {
               text="Find Service"
               type="primary"
               size="big"
-              route="/find-service"
+              route="/services"
             />
             <Button
               text="Become a Provider"
               type="primary"
               size="big"
-              route="/become-a-provider"
+              route="/providers"
             />
           </div>
         </div>
       </div>
-
       <div className={styles.results}>
-        {searchResults.map((result, index) => (
-          <div key={index} className={styles.result}>
-            {result}
+        {results.map((service) => (
+          <div key={service.ServiceID} className={styles.resultCard}>
+            <div className={styles.imgWrapper}>
+              <Image
+                src={`/images/${service.Image}`} // Assuming images are in the "public/images" directory
+                alt={service.ServiceName}
+                fill
+                className={styles.img}
+              />
+            </div>
+            <div className={styles.cardContent}>
+              <h3 className={styles.serviceName}>{service.ServiceName}</h3>
+              <p className={styles.description}>{service.Description}</p>
+              <p className={styles.providerName}>
+                Provider: <strong>{service.ProviderName}</strong>
+              </p>
+              <p className={styles.price}>
+                Price: <strong>${service.Price}</strong>
+              </p>
+            </div>
           </div>
         ))}
       </div>

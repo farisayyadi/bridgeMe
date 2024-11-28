@@ -20,7 +20,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({ onSearch }) => {
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     if (query.trim() !== "") {
-      onSearch(query);
+      onSearch(query); // Trigger the search with the query
       setQuery("");
     }
   };
@@ -32,7 +32,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({ onSearch }) => {
   return (
     <form onSubmit={handleSubmit} className={styles.searchBox}>
       <span className={styles.searchInputs}>
-        <CiSearch className={styles.icons} />
+        <CiSearch className={styles.icons} onClick={handleSubmit} />
         <input
           type="text"
           value={query}
@@ -57,7 +57,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({ onSearch }) => {
         size="small"
         type="primary"
         buttonType="submit"
-        className={styles.searchButton} // Custom styles for this button
+        className={styles.searchButton}
       />
     </form>
   );

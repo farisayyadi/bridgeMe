@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/navigation";
-import styles from "./Button.module.css";
+import styles from "./button.module.css";
 import classNames from "classnames";
 
 interface ButtonProps {

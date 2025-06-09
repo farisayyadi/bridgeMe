@@ -44,29 +44,38 @@ const Services = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>Our Services</h1>
+      <h1 className={styles.heading}>Discover Amazing Services</h1>
       <div className={styles.servicesGrid}>
         {mergedData.map((service) => (
           <div key={service.ServiceID} className={styles.serviceCard}>
             <div className={styles.imageWrapper}>
               <Image
-                src={`/images/${service.Image}`} // Assuming images are in the "public/images" directory
+                src={`/images/${service.Image}`}
                 alt={service.ServiceName}
-                fill // Ensures the image fills the dimensions of the wrapper
+                fill
                 className={styles.img}
               />
+              <div className={styles.categoryBadge}>
+                {service.Category}
+              </div>
             </div>
+
             <h3 className={styles.serviceName}>{service.ServiceName}</h3>
             <p className={styles.description}>{service.Description}</p>
-            <p className={styles.provider}>
-              <strong>Provider:</strong> {service.ProviderName} (
-              {service.ContactName})
-            </p>
-            <p className={styles.details}>
-              <strong>Category:</strong> {service.Category} |{" "}
-              <strong>Price:</strong> ${service.Price} |{" "}
-              <strong>Duration:</strong> {service.Duration} mins
-            </p>
+
+            <div className={styles.provider}>
+              <strong>Provider:</strong> {service.ProviderName}
+              {service.ContactName && ` (${service.ContactName})`}
+            </div>
+
+            <div className={styles.details}>
+              <div>
+                <strong>Duration:</strong> {service.Duration} mins
+              </div>
+              <div className={styles.priceTag}>
+                ${service.Price}
+              </div>
+            </div>
           </div>
         ))}
       </div>

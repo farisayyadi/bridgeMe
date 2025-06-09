@@ -79,7 +79,7 @@ const Home: React.FC = () => {
         <div className={homeStyles.heroContent}>
           <div className={homeStyles.heroText}>
             <h1 className={homeStyles.heroTitle}>
-              Let's be each other's <span className={homeStyles.highlight}>Bridge</span>
+              Let&apos;s be each other&apos;s <span className={homeStyles.highlight}>Bridge</span>
             </h1>
             <p className={homeStyles.heroSubtitle}>
               Empowering Connections, Inspiring Growth. Connect with local service providers

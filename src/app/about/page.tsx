@@ -12,12 +12,12 @@ const AboutPage = () => {
         </h1>
         <p className={styles.desc}>
           Founded in 2024 with a vision to foster a more supportive and
-          interconnected society, BridgeMe is more than just a service; it's a
+          interconnected society, BridgeMe is more than just a service; it&apos;s a
           lifeline for those who require assistance with daily tasks, projects,
           or navigating through unfamiliar territories.
           <br />
           Our mission is simple: to bridge the gap between those seeking help
-          and those willing to lend a hand. Whether you're an elderly individual
+          and those willing to lend a hand. Whether you&apos;re an elderly individual
           needing assistance with household chores, a newcomer to a foreign land
           seeking guidance, or someone with a disability requiring specialized
           support, BridgeMe is here to connect you with reliable and
@@ -25,7 +25,7 @@ const AboutPage = () => {
           <br />
           At BridgeMe, we believe that everyone deserves access to the help they
           need, regardless of their background, abilities, or financial
-          situation. That's why our platform offers a range of options, from
+          situation. That&apos;s why our platform offers a range of options, from
           paid services to volunteer opportunities, ensuring that assistance is
           accessible to all.
         </p>

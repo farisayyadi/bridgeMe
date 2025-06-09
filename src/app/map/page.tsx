@@ -1,34 +1,50 @@
 "use client";
 
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl:
-    "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png",
-  iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
+// Dynamically import the map component to avoid SSR issues
+const MapComponent = dynamic(() => import("../../components/MapComponent"), {
+  ssr: false,
+  loading: () => (
+    <div style={{
+      height: "50vh",
+      width: "100%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      background: "linear-gradient(135deg, var(--light-200) 0%, var(--accent-200) 100%)",
+      borderRadius: "var(--radius-xl)"
+    }}>
+      <p>Loading map...</p>
+    </div>
+  ),
 });
 
 const Map = () => {
-  return (
-    <MapContainer
-      center={[48.137633, 11.52254]} // Coordinates for Elsenheimerstraße 45, 80687 München
-      zoom={15}
-      style={{ height: "50vh", width: "100%" }}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
-      />
-      <Marker position={[48.137633, 11.52254]}>
-        <Popup>
-          Smartlane GmbH <br /> AI-Powered Transport Optimization.
-        </Popup>
-      </Marker>
-    </MapContainer>
-  );
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return (
+      <div style={{
+        height: "50vh",
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "linear-gradient(135deg, var(--light-200) 0%, var(--accent-200) 100%)",
+        borderRadius: "var(--radius-xl)"
+      }}>
+        <p>Loading map...</p>
+      </div>
+    );
+  }
+
+  return <MapComponent />;
 };
 
 export default Map;
